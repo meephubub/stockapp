@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HomeIcon, BarChart2Icon, LogInIcon, LogOutIcon } from "lucide-react";
 import Button from "@/components/ui/button";
-import { Inter } from 'next/font/google'; // Added this line
+import Inter from 'next/font/google'; // Corrected import statement
 
-const inter = Inter({ subsets: ['latin'] });
+const { providerClass } = Inter({ subsets: ['latin'] });
