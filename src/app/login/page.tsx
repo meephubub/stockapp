@@ -1,30 +1,24 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
-import { useRouter } from 'next/router' // Import useRouter
-import StockInfo from './components/StockInfo'
-import Chart from './components/Chart'
-import TradingSignal from './components/TradingSignal'
-import GlassCard from './components/GlassCard'
-import Input from './components/ui/Input' // Relative path
-import Button from './components/ui/Button' // Relative path
-import axios from 'axios'
-import useSWR from 'swr'
-import { motion } from 'framer-motion'
-import { LockIcon, UserIcon } from 'lucide-react'
+import React, { useState } from 'react';
+import { useRouter } from 'next/router'; // Import useRouter
+import GlassCard from '../components/GlassCard'; // Adjust path if necessary
+import Input from '../components/ui/Input'; // Adjust path if necessary
+import Button from '../components/ui/Button'; // Adjust path if necessary
+import { LockIcon, UserIcon } from 'lucide-react';
 
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const router = useRouter()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Here you would typically handle the login logic
-    console.log('Login attempted with:', email, password)
+    console.log('Login attempted with:', email, password);
     // For now, we'll just redirect to the home page
-    router.push('/')
-  }
+    router.push('/');
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -71,5 +65,5 @@ export default function Login() {
         </form>
       </GlassCard>
     </div>
-  )
+  );
 }

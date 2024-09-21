@@ -3,12 +3,12 @@
 import React from 'react';
 import useSWR from 'swr';
 import axios from 'axios';
-import StockInfo from './components/StockInfo';
-import Chart from './components/Chart';
-import TradingSignal from './components/TradingSignal';
-import GlassCard from './components/GlassCard';
-import Input from './components/ui/Input'; // Relative path
-import Button from './components/ui/Button'; // Relative path
+import StockInfo from '../components/StockInfo'; // Adjust path if necessary
+import Chart from '../components/Chart'; // Adjust path if necessary
+import TradingSignal from '../components/TradingSignal'; // Adjust path if necessary
+import GlassCard from '../components/GlassCard'; // Adjust path if necessary
+import Input from '../components/ui/Input'; // Adjust path if necessary
+import Button from '../components/ui/Button'; // Adjust path if necessary
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
