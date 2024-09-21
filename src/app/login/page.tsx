@@ -1,36 +1,44 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/router'; // Import useRouter
-import GlassCard from '../components/GlassCard'; // Adjust path if necessary
-import Input from '../components/ui/Input'; // Adjust path if necessary
-import Button from '../components/ui/Button'; // Adjust path if necessary
-import { LockIcon, UserIcon } from 'lucide-react';
+import React, { useState } from "react";
+import { useRouter } from "next/router"; // Import useRouter
+import GlassCard from "../components/GlassCard"; // Adjust path if necessary
+import Input from "../components/ui/input"; // Ensure this path is correct
+import Button from "../components/ui/button"; // Ensure this path is correct
+import { LockIcon, UserIcon } from "lucide-react";
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically handle the login logic
-    console.log('Login attempted with:', email, password);
+    console.log("Login attempted with:", email, password);
     // For now, we'll just redirect to the home page
-    router.push('/');
+    router.push("/");
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
       <GlassCard className="w-full max-w-md">
-        <h1 className="text-3xl font-bold mb-6 text-center">Login to StockVision</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center">
+          Login to StockVision
+        </h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-300 mb-1"
+            >
               Email
             </label>
             <div className="relative">
-              <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              <UserIcon
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={18}
+              />
               <Input
                 id="email"
                 type="email"
@@ -43,11 +51,17 @@ export default function Login() {
             </div>
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-1">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-300 mb-1"
+            >
               Password
             </label>
             <div className="relative">
-              <LockIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              <LockIcon
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={18}
+              />
               <Input
                 id="password"
                 type="password"

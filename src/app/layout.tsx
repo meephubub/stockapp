@@ -1,20 +1,20 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import Link from 'next/link'
-import { HomeIcon, BarChart2Icon, LogInIcon, LogOutIcon } from 'lucide-react'
-import Button from './components/ui/button'
+import "./globals.css";
+import { Inter } from "next/font/google";
+import Link from "next/link";
+import { HomeIcon, BarChart2Icon, LogInIcon } from "lucide-react";
+import Button from "./components/ui/button";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'StockVision',
-  description: 'Real-time stock data and portfolio management',
-}
+  title: "StockVision",
+  description: "Real-time stock data and portfolio management",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -31,10 +31,16 @@ export default function RootLayout({
                   StockVision
                 </Link>
                 <div className="flex items-center space-x-4">
-                  <Link href="/" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  <Link
+                    href="/"
+                    className="text-gray-300 hover:text-blue-400 transition-colors"
+                  >
                     <HomeIcon className="h-6 w-6" />
                   </Link>
-                  <Link href="/portfolio" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  <Link
+                    href="/portfolio"
+                    className="text-gray-300 hover:text-blue-400 transition-colors"
+                  >
                     <BarChart2Icon className="h-6 w-6" />
                   </Link>
                   <Button
@@ -55,5 +61,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }

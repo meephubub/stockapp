@@ -1,21 +1,21 @@
-import React from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { HomeIcon, BarChart2Icon, LogInIcon, LogOutIcon } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { HomeIcon, BarChart2Icon, LogInIcon, LogOutIcon } from "lucide-react";
+import Button from "../components/ui/button";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const router = useRouter()
-  const isLoggedIn = true // This should be replaced with actual auth state
+  const router = useRouter();
+  const isLoggedIn = true; // This should be replaced with actual auth state
 
   const handleAuthAction = () => {
     if (isLoggedIn) {
       // Handle logout logic here
-      console.log('Logged out')
+      console.log("Logged out");
     } else {
-      router.push('/login')
+      router.push("/login");
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 relative overflow-hidden">
@@ -30,10 +30,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               StockVision
             </Link>
             <div className="flex items-center space-x-4">
-              <Link href="/" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <Link
+                href="/"
+                className="text-gray-300 hover:text-blue-400 transition-colors"
+              >
                 <HomeIcon className="h-6 w-6" />
               </Link>
-              <Link href="/portfolio" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <Link
+                href="/portfolio"
+                className="text-gray-300 hover:text-blue-400 transition-colors"
+              >
                 <BarChart2Icon className="h-6 w-6" />
               </Link>
               <Button
@@ -57,10 +63,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         </nav>
-        <main className="container mx-auto px-6 pt-20 pb-12">
-          {children}
-        </main>
+        <main className="container mx-auto px-6 pt-20 pb-12">{children}</main>
       </div>
     </div>
-  )
+  );
 }
