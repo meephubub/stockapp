@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/router"; // Import useRouter
-import GlassCard from "../components/GlassCard"; // Adjust path if necessary
+import { useRouter } from "next/navigation"; // Change this to next/navigation
+import GlassCard from "../components/GlassCard"; // Ensure this path is correct
 import Input from "../components/ui/input"; // Ensure this path is correct
 import Button from "../components/ui/button"; // Ensure this path is correct
 import { LockIcon, UserIcon } from "lucide-react";
@@ -12,12 +12,17 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the login logic
     console.log("Login attempted with:", email, password);
-    // For now, we'll just redirect to the home page
-    router.push("/");
+
+    try {
+      // Handle login logic here (e.g., API call)
+      // For now, we'll just redirect to the home page
+      await router.push("/");
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
   };
 
   return (
@@ -28,10 +33,7 @@ export default function Login() {
         </h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-300 mb-1"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
               Email
             </label>
             <div className="relative">
@@ -51,10 +53,7 @@ export default function Login() {
             </div>
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-300 mb-1"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-1">
               Password
             </label>
             <div className="relative">
