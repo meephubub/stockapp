@@ -1,12 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/router' // Import useRouter
 import StockInfo from './components/StockInfo'
 import Chart from './components/Chart'
 import TradingSignal from './components/TradingSignal'
 import GlassCard from './components/GlassCard'
-import Input from './components/ui/Input' // Changed to relative path
-import Button from './components/ui/Button' // Changed to relative path
+import Input from './components/ui/Input' // Relative path
+import Button from './components/ui/Button' // Relative path
 import axios from 'axios'
 import useSWR from 'swr'
 import { motion } from 'framer-motion'

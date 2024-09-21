@@ -1,15 +1,14 @@
 "use client";
 
-import React, { useState } from 'react'
-import StockInfo from './components/StockInfo'
-import Chart from './components/Chart'
-import TradingSignal from './components/TradingSignal'
-import GlassCard from './components/GlassCard'
-import Input from './components/ui/Input' // Changed to relative path
-import Button from './components/ui/Button' // Changed to relative path
-import axios from 'axios'
-import useSWR from 'swr'
-import { motion } from 'framer-motion'
+import React from 'react';
+import useSWR from 'swr';
+import axios from 'axios';
+import StockInfo from './components/StockInfo';
+import Chart from './components/Chart';
+import TradingSignal from './components/TradingSignal';
+import GlassCard from './components/GlassCard';
+import Input from './components/ui/Input'; // Relative path
+import Button from './components/ui/Button'; // Relative path
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -22,8 +21,7 @@ export default function Portfolio() {
     { refreshInterval: 60000 },
   );
 
-  if (error)
-    return <div className="text-red-400">Failed to load portfolio data</div>;
+  if (error) return <div className="text-red-400">Failed to load portfolio data</div>;
   if (!portfolioData) return <div className="text-blue-400">Loading...</div>;
 
   return (
@@ -32,17 +30,12 @@ export default function Portfolio() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <GlassCard>
           <h3 className="text-xl font-semibold mb-2">Total Value</h3>
-          <p className="text-3xl font-bold">
-            ${portfolioData.total_value.toFixed(2)}
-          </p>
+          <p className="text-3xl font-bold">${portfolioData.total_value.toFixed(2)}</p>
         </GlassCard>
         <GlassCard>
           <h3 className="text-xl font-semibold mb-2">Profit/Loss</h3>
-          <p
-            className={`text-3xl font-bold ${portfolioData.profit_loss >= 0 ? "text-green-400" : "text-red-400"}`}
-          >
-            {portfolioData.profit_loss >= 0 ? "+" : "-"}$
-            {Math.abs(portfolioData.profit_loss).toFixed(2)}
+          <p className={`text-3xl font-bold ${portfolioData.profit_loss >= 0 ? "text-green-400" : "text-red-400"}`}>
+            {portfolioData.profit_loss >= 0 ? "+" : "-"}${Math.abs(portfolioData.profit_loss).toFixed(2)}
           </p>
         </GlassCard>
         <GlassCard>
@@ -50,10 +43,7 @@ export default function Portfolio() {
           <p className="text-3xl font-bold">{portfolioData.total_shares}</p>
         </GlassCard>
       </div>
-      <Chart
-        data={portfolioData.value_history}
-        title="Portfolio Value History"
-      />
+      <Chart data={portfolioData.value_history} title="Portfolio Value History" />
       <div className="mt-6">
         <GlassCard>
           <h3 className="text-xl font-semibold mb-4">Holdings</h3>
@@ -75,15 +65,8 @@ export default function Portfolio() {
                     <td>{holding.shares}</td>
                     <td>${holding.avg_price.toFixed(2)}</td>
                     <td>${holding.current_price.toFixed(2)}</td>
-                    <td
-                      className={
-                        holding.profit_loss >= 0
-                          ? "text-green-400"
-                          : "text-red-400"
-                      }
-                    >
-                      {holding.profit_loss >= 0 ? "+" : "-"}$
-                      {Math.abs(holding.profit_loss).toFixed(2)}
+                    <td className={holding.profit_loss >= 0 ? "text-green-400" : "text-red-400"}>
+                      {holding.profit_loss >= 0 ? "+" : "-"}${Math.abs(holding.profit_loss).toFixed(2)}
                     </td>
                   </tr>
                 ))}
