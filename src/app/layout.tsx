@@ -1,6 +1,8 @@
-import Link from "next/link";
-import { HomeIcon, BarChart2Icon, LogInIcon, LogOutIcon } from "lucide-react";
+// entire file content ...
+
 import Button from "@/components/ui/button";
-import Inter, { providerClass } from 'next/font/google'; // Corrected import statement
+import { providerClass } = Inter({ subsets: ['latin'] });
 
 const { providerClass } = Inter({ subsets: ['latin'] });
+
+// ... rest of your code ...
